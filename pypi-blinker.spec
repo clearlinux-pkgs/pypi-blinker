@@ -4,7 +4,7 @@
 #
 Name     : pypi-blinker
 Version  : 1.4
-Release  : 45
+Release  : 46
 URL      : https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz
 Source0  : https://files.pythonhosted.org/packages/1b/51/e2a9f3b757eb802f61dc1f2b09c8c99f6eb01cf06416c0671253536517b6/blinker-1.4.tar.gz
 Summary  : Fast, simple object-to-object and broadcast signaling
@@ -14,6 +14,7 @@ Requires: pypi-blinker-license = %{version}-%{release}
 Requires: pypi-blinker-python = %{version}-%{release}
 Requires: pypi-blinker-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
+Provides: blinker
 
 %description
 # Blinker
