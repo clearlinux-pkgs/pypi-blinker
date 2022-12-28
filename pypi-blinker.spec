@@ -4,12 +4,13 @@
 #
 Name     : pypi-blinker
 Version  : 1.5
-Release  : 57
+Release  : 58
 URL      : https://files.pythonhosted.org/packages/2b/12/82786486cefb68685bb1c151730f510b0f4e5d621d77f245bc0daf9a6c64/blinker-1.5.tar.gz
 Source0  : https://files.pythonhosted.org/packages/2b/12/82786486cefb68685bb1c151730f510b0f4e5d621d77f245bc0daf9a6c64/blinker-1.5.tar.gz
 Summary  : Fast, simple object-to-object and broadcast signaling
 Group    : Development/Tools
 License  : MIT
+Requires: pypi-blinker-license = %{version}-%{release}
 Requires: pypi-blinker-python = %{version}-%{release}
 Requires: pypi-blinker-python3 = %{version}-%{release}
 BuildRequires : buildreq-distutils3
@@ -18,12 +19,23 @@ BuildRequires : pypi-pluggy
 BuildRequires : pypi-pytest
 BuildRequires : pypi-tox
 BuildRequires : pypi-virtualenv
+# Suppress stripping binaries
+%define __strip /bin/true
+%define debug_package %{nil}
 
 %description
 Blinker
 =======
 Blinker provides a fast dispatching system that allows any number of
 interested parties to subscribe to events, or "signals".
+
+%package license
+Summary: license components for the pypi-blinker package.
+Group: Default
+
+%description license
+license components for the pypi-blinker package.
+
 
 %package python
 Summary: python components for the pypi-blinker package.
@@ -56,12 +68,12 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1658094236
+export SOURCE_DATE_EPOCH=1672259979
 export GCC_IGNORE_WERROR=1
-export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$FFLAGS -fno-lto "
-export FFLAGS="$FFLAGS -fno-lto "
-export CXXFLAGS="$CXXFLAGS -fno-lto "
+export CFLAGS="$CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FCFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export FFLAGS="$FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
+export CXXFLAGS="$CXXFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz "
 export MAKEFLAGS=%{?_smp_mflags}
 python3 setup.py build
 
@@ -77,6 +89,8 @@ popd
 %install
 export MAKEFLAGS=%{?_smp_mflags}
 rm -rf %{buildroot}
+mkdir -p %{buildroot}/usr/share/package-licenses/pypi-blinker
+cp %{_builddir}/blinker-%{version}/LICENSE.rst %{buildroot}/usr/share/package-licenses/pypi-blinker/7e4783e856880d78ca235fc350e7269950aa22da || :
 python3 -tt setup.py build  install --root=%{buildroot}
 echo ----[ mark ]----
 cat %{buildroot}/usr/lib/python3*/site-packages/*/requires.txt || :
@@ -93,6 +107,10 @@ popd
 
 %files
 %defattr(-,root,root,-)
+
+%files license
+%defattr(0644,root,root,0755)
+/usr/share/package-licenses/pypi-blinker/7e4783e856880d78ca235fc350e7269950aa22da
 
 %files python
 %defattr(-,root,root,-)
