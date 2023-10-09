@@ -1,5 +1,5 @@
 PKG_NAME := pypi-blinker
-URL = https://files.pythonhosted.org/packages/e8/f9/a05287f3d5c54d20f51a235ace01f50620984bc7ca5ceee781dc645211c5/blinker-1.6.2.tar.gz
+URL = https://files.pythonhosted.org/packages/ea/96/ed1420a974540da7419094f2553bc198c454cee5f72576e7c7629dd12d6e/blinker-1.6.3.tar.gz
 ARCHIVES = 
 
 include ../common/Makefile.common
