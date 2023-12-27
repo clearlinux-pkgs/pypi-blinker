@@ -7,7 +7,7 @@
 #
 Name     : pypi-blinker
 Version  : 1.7.0
-Release  : 65
+Release  : 66
 URL      : https://files.pythonhosted.org/packages/a1/13/6df5fc090ff4e5d246baf1f45fe9e5623aa8565757dfa5bd243f6a545f9e/blinker-1.7.0.tar.gz
 Source0  : https://files.pythonhosted.org/packages/a1/13/6df5fc090ff4e5d246baf1f45fe9e5623aa8565757dfa5bd243f6a545f9e/blinker-1.7.0.tar.gz
 Summary  : Fast, simple object-to-object and broadcast signaling
