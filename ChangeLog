@@ -1,3 +1,22 @@
+Version 1.8.0
+-------------
+
+Released 2024-04-27
+
+-   Deprecate the ``__version__`` attribute. Use feature detection, or
+    ``importlib.metadata.version("blinker")``, instead. :issue:`128`
+-   Specify that the deprecated ``temporarily_connected_to`` will be removed in
+    the next version.
+-   Show a deprecation warning for the deprecated global ``receiver_connected``
+    signal and specify that it will be removed in the next version.
+-   Show a deprecation warning for the deprecated ``WeakNamespace`` and specify
+    that it will be removed in the next version.
+-   Greatly simplify how the library uses weakrefs. This is a significant change
+    internally but should not affect any public API. :pr:`144`
+-   Expose the namespace used by ``signal()`` as ``default_namespace``.
+    :pr:`145`
+
+
 Version 1.7.0
 -------------
 
