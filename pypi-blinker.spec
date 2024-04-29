@@ -6,10 +6,10 @@
 # autospec commit: 5905be9
 #
 Name     : pypi-blinker
-Version  : 1.8.0
-Release  : 67
-URL      : https://files.pythonhosted.org/packages/4e/de/df5112127fdb2d0ebfd64e506bee284581bbde969d1639cbb0288735af54/blinker-1.8.0.tar.gz
-Source0  : https://files.pythonhosted.org/packages/4e/de/df5112127fdb2d0ebfd64e506bee284581bbde969d1639cbb0288735af54/blinker-1.8.0.tar.gz
+Version  : 1.8.1
+Release  : 68
+URL      : https://files.pythonhosted.org/packages/06/7a/876838c7a478e3a487fb890c821ded320a321a56471bb2c751b566b84767/blinker-1.8.1.tar.gz
+Source0  : https://files.pythonhosted.org/packages/06/7a/876838c7a478e3a487fb890c821ded320a321a56471bb2c751b566b84767/blinker-1.8.1.tar.gz
 Summary  : Fast, simple object-to-object and broadcast signaling
 Group    : Development/Tools
 License  : MIT
@@ -60,10 +60,10 @@ python3 components for the pypi-blinker package.
 
 
 %prep
-%setup -q -n blinker-1.8.0
-cd %{_builddir}/blinker-1.8.0
+%setup -q -n blinker-1.8.1
+cd %{_builddir}/blinker-1.8.1
 pushd ..
-cp -a blinker-1.8.0 buildavx2
+cp -a blinker-1.8.1 buildavx2
 popd
 
 %build
@@ -71,7 +71,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1714322943
+export SOURCE_DATE_EPOCH=1714402196
 export GCC_IGNORE_WERROR=1
 CLEAR_INTERMEDIATE_CFLAGS="$CLEAR_INTERMEDIATE_CFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
 CLEAR_INTERMEDIATE_FCFLAGS="$CLEAR_INTERMEDIATE_FFLAGS -fdebug-types-section -femit-struct-debug-baseonly -fno-lto -g1 -gno-column-info -gno-variable-location-views -gz=zstd "
